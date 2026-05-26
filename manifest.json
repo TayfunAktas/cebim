@@ -1,18 +1,23 @@
 {
-  "name": "Tayfun Bütçe",
-  "short_name": "Bütçem",
-  "description": "Tayfun AKTAŞ Gelişmiş Kişisel Finans ve Mali Durum Analiz PWA Uygulaması",
-  "start_url": "./index.html",
+  "name": "Kişisel Finans Yönetimi",
+  "short_name": "FinansAnaliz",
+  "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#070B19",
-  "theme_color": "#0D1428",
-  "orientation": "portrait",
+  "background_color": "#0f172a",
+  "theme_color": "#2563eb",
+  "description": "Gelişmiş Kişisel Finans ve Varlık Takip Uygulaması",
+  "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/5501/5501375.png",
+      "src": "https://cdn-icons-png.flaticon.com/512/2489/2489756.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/192/2489/2489756.png",
+      "sizes": "192x192",
+      "type": "image/png"
     }
   ]
 }
