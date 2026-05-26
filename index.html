@@ -855,7 +855,7 @@
                     const groupItems = grouped[title];
                     const totalSum = groupItems.reduce((s, i) => s + i.amount, 0);
 
-                    if (groupItems.length > 1 || groupItems[0].origin === 'fixed' || groupItems[0].origin === 'installment') {
+                    if (groupItems.length > 1 || groupItems[0].origin === 'Sabit Gider' || groupItems[0].origin === 'Taksit') {
                         let childHtml = '';
                         groupItems.forEach(gi => {
                             childHtml += `
