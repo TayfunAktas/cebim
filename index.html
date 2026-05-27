@@ -9,16 +9,14 @@
     <meta name="theme-color" content="#04120e">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
-     <link rel="manifest" href="manifest.json">
 
-   
+  <link rel="manifest" href="manifest.json">
+
 
     <style>
         :root {
@@ -85,8 +83,6 @@
             transition: max-height 0.3s ease-out;
         }
     </style>
-    <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
-
 </head>
 <body class="pb-32 pt-20">
 
@@ -465,40 +461,6 @@
             <button onclick="saveFixedItem()" class="w-full py-3 bg-[var(--primary)] text-black rounded-xl font-bold text-xs shadow-lg glow-accent">Taahhüdü İşle</button>
         </div>
     </div>
-// 1. Veri tabanını oluşturuyoruz
-const db = new Dexie("ButcemDatabase");
-db.version(1).stores({
-  islemler: '++id, baslik, miktar, tip, kategori, tarih, ayYil, durum'
-});
-
-// 2. Sayfa yüklenirken verileri otomatik yükleme ve eski verileri taşıma fonksiyonu
-async function veriTabaniniBaslat() {
-  const eskiVeri = localStorage.getItem('butce_verileri'); // Önceki sistemdeki verilerin
-  const gocTamam = localStorage.getItem('db_goc_tamam');
-
-  if (eskiVeri && !gocTamam) {
-    try {
-      const liste = JSON.parse(eskiVeri);
-      if (Array.isArray(liste)) {
-        await db.islemler.bulkAdd(liste);
-      }
-      localStorage.setItem('db_goc_tamam', 'true');
-      console.log("Eski veriler yeni veri tabanına başarıyla aktarıldı!");
-    } catch (e) {
-      console.error("Veri aktarım hatası:", e);
-    }
-  }
-  
-  // Veri tabanı hazır olunca mevcut listeleme fonksiyonunu tetikliyoruz
-  if (typeof arayuzuGuncelle === "function") {
-    arayuzuGuncelle();
-  } else if (typeof renderApp === "function") {
-    renderApp();
-  }
-}
-
-// Sayfa açılır açılmaz bu sistemi çalıştır
-window.addEventListener('DOMContentLoaded', veriTabaniniBaslat);
 
     <script>
         // ANA HAFIZA MODELİ
@@ -1363,7 +1325,7 @@ window.addEventListener('DOMContentLoaded', veriTabaniniBaslat);
             loadStateFromStorage();
         });
     </script>
-   <script>
+<script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('./sw.js')
