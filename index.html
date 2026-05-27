@@ -14,8 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+     <link rel="manifest" href="manifest.json">
 
-    <link rel="manifest" href="data:application/json,%7B%22name%22%3A%22Tayfun%20B%C3%BCt%C3%A7e%22%2C%22short_name%22%3A%22Tayfun%20B%C3%BCt%C3%A7e%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%2304120e%22%2C%22theme_color%22%3A%22%2310b981%22%7D">
+   
 
     <style>
         :root {
@@ -1324,5 +1325,19 @@
             loadStateFromStorage();
         });
     </script>
+   <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then((registration) => {
+          console.log('ServiceWorker başarıyla kaydedildi: ', registration.scope);
+        })
+        .catch((error) => {
+          console.log('ServiceWorker kayıt hatası: ', error);
+        });
+    });
+  }
+</script>
+
 </body>
 </html>
